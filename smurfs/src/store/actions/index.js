@@ -22,17 +22,15 @@ export const fetchData = () => {
   };
 };
 
-export const postData = () => {
+export const postData = (name, age, height) => {
   return (dispatch) => {
     dispatch({ type: POST_SMURF_START });
     axios
       .post('http://localhost:3333/smurfs', {
-        name: 'Gary',
-        age: 27,
-        height: '6ft',
+        name: name,
+        age: age,
+        height: height,
+        id: 1
       })
-      .then((res) => {
-        dispatch({ type: POST_SMURF_SUCCESS, payload: res });
-      });
   };
 };
